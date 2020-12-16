@@ -1,0 +1,5 @@
+beds,baths,pool,price
+3,3,yes,290000
+3,3,no,240000
+5,4,yes,530000
+4,4,no,410000
