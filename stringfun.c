@@ -1,7 +1,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-void bracket_balance(char *, int);
+void bracket_balance(char *, int); // prototype
+
 int main(void){
 
 
@@ -22,7 +23,7 @@ int main(void){
                 nread = getline(&s, &maxn, stdin);
                 }
         }    
-        
+        free(s);
         return 0;
 }
 void bracket_balance(char *str, int letters){
@@ -33,16 +34,34 @@ void bracket_balance(char *str, int letters){
 
         for (int i = 0; i < size-1; i++) {
             character = str[i];
-
-            if (character != 'g') {
                 *(open_arr+i) = character;
-            }
-           
         }
+
+        int i = size-2;
         
-        for ( int i = 0; i < size-1; i++)
+        while (i >= 0 )
         {
-            printf("%c\n", *(open_arr+i));
+                if ( *(open_arr+i) == 'g') {
+                        i--;
+                }
+                else if (*(open_arr+i) == 'v')
+                {
+                        i--;
+                }
+                else if (*(open_arr+i) == 's')
+                {
+                        i--;
+                }
+                else if (*(open_arr+i) == 'u')
+                {
+                        i--;
+                }
+                else {
+                        printf("%c", *(open_arr+i));
+                        i--;
+                }
         }
+        printf("\n");
+        free(open_arr);
         
 }
